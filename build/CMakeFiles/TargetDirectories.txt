@@ -1,4 +1,0 @@
-/home/federico/Documents/labdiprogram/Book-provaint/build/CMakeFiles/Kindle.dir
-/home/federico/Documents/labdiprogram/Book-provaint/build/CMakeFiles/Books.dir
-/home/federico/Documents/labdiprogram/Book-provaint/build/CMakeFiles/edit_cache.dir
-/home/federico/Documents/labdiprogram/Book-provaint/build/CMakeFiles/rebuild_cache.dir
