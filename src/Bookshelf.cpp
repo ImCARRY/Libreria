@@ -1,19 +1,19 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "Bookshelf.h"
+#include "BookShelf.h"
 
 
 // Default constructor
-Bookshelf::Bookshelf() : buffer(nullptr), size(0), capacity(0) {}
+BookShelf::BookShelf() : buffer(nullptr), size(0), capacity(0) {}
 
 // Destructor
-Bookshelf::~Bookshelf() {
+BookShelf::~BookShelf() {
     delete[] buffer;
 }
 
 // Copy constructor
-Bookshelf::Bookshelf(const Bookshelf& other) : size(other.size), capacity(other.capacity) {
+BookShelf::BookShelf(const BookShelf& other) : size(other.size), capacity(other.capacity) {
     buffer = new Book[capacity];
     for (int i = 0; i < size; i++) {
         buffer[i] = other.buffer[i];
@@ -21,7 +21,7 @@ Bookshelf::Bookshelf(const Bookshelf& other) : size(other.size), capacity(other.
 }
 
 // Assignment operator
-Bookshelf& Bookshelf::operator=(const Bookshelf& other) {
+BookShelf& BookShelf::operator=(const BookShelf& other) {
     if (this != &other) {
         delete[] buffer;
         size = other.size;
@@ -35,7 +35,7 @@ Bookshelf& Bookshelf::operator=(const Bookshelf& other) {
 }
 
 // Accessor with boundary check
-Book& Bookshelf::at(int index) {
+Book& BookShelf::at(int index) {
     if (index < 0 || index >= size) {
         throw std::out_of_range("Index out of range");
     }
@@ -43,7 +43,7 @@ Book& Bookshelf::at(int index) {
 }
 
 // Accessor with boundary check (const version)
-const Book& Bookshelf::at(int index) const {
+const Book& BookShelf::at(int index) const {
     if (index < 0 || index >= size) {
         throw std::out_of_range("Index out of range");
     }
@@ -51,17 +51,17 @@ const Book& Bookshelf::at(int index) const {
 }
 
 // Accessor with double overloading of operator[]
-Book& Bookshelf::operator[](int index) {
+Book& BookShelf::operator[](int index) {
     return buffer[index];
 }
 
 // Accessor with double overloading of operator[] (const version)
-const Book& Bookshelf::operator[](int index) const {
+const Book& BookShelf::operator[](int index) const {
     return buffer[index];
 }
 
 // Function to add an element at the end
-void Bookshelf::push_back(Book value) {
+void BookShelf::push_back(Book value) {
     if (size == capacity) {
         // Reallocate a larger buffer
         int newCapacity = (capacity == 0) ? 1 : capacity * 2;
@@ -78,14 +78,14 @@ void Bookshelf::push_back(Book value) {
 }
 
 // Function to remove the last element
-void Bookshelf::pop_back() {
+void BookShelf::pop_back() {
     if (size > 0) {
         size--;
     }
 }
 
 // Function to reserve a minimum buffer size
-void Bookshelf::reserve(int minCapacity) {
+void BookShelf::reserve(int minCapacity) {
     if (minCapacity > capacity) {
         Book* newBuffer = new Book[minCapacity];
         for (int i = 0; i < size; i++) {

@@ -4,12 +4,12 @@
 
 #include "Book.h"
 
-class Bookshelf {
+class BookShelf {
     public:
-        Bookshelf();
-        ~Bookshelf();
-        Bookshelf(const Bookshelf& other);
-        Bookshelf& operator=(const Bookshelf& other);
+        BookShelf();
+        ~BookShelf();
+        BookShelf(const BookShelf& other);
+        BookShelf& operator=(const BookShelf& other);
         Book& operator[](int index);
         const Book& operator[](int index) const;
         Book& at(int index);
