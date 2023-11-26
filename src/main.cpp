@@ -15,5 +15,21 @@ int main(){
     l1.presta();
     std::cout << l1 << std::endl;
 
+    /**
+     * Test case #1
+    */
+    try
+    {
+        BookShelf shelf(10);
+        shelf.push_back(l1);
+        shelf.pop_back();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Test case #1 fallito" << std::endl;
+        std::cerr << e.what() << std::endl;
+    }
+
+
     return 0;
 }

@@ -9,6 +9,7 @@ class BookShelf {
         BookShelf();
         ~BookShelf();
         BookShelf(const BookShelf& other);
+        BookShelf(int capacity) : buffer(new Book[capacity]), size(0), capacity(capacity) {}
         BookShelf& operator=(const BookShelf& other);
         Book& operator[](int index);
         const Book& operator[](int index) const;
