@@ -1,0 +1,2 @@
+/usr/bin/ar qc libKindle.a CMakeFiles/Kindle.dir/src/Book.cpp.o CMakeFiles/Kindle.dir/src/Date.cpp.o CMakeFiles/Kindle.dir/src/Bookshelf.cpp.o
+/usr/bin/ranlib libKindle.a
