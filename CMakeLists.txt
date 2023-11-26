@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(SRC_FILES src/Book.cpp src/Date.cpp src/Bookshelf.cpp)
 set(HEADER_FILES include/Book.h include/Date.h include/Bookshelf.h)
-SET(GCC_COVERAGE_COMPILE_FLAGS "-g -O2")
+SET(GCC_COVERAGE_COMPILE_FLAGS "-Og")
 
 add_definitions(${GCC_COVERAGE_COMPILE_FLAGS})
 
