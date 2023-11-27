@@ -37,11 +37,11 @@ class Book
          * Member functions
         */
 
-        std::string getIsbn() const {return isbn;}
-        std::string getTitolo() const {return titolo;}
-        std::string getNome() const {return nome;}
-        std::string getCognome() const {return cognome;}
-        Date getData() const {return data;}
+        std::string getIsbn() const {return isbn_;}
+        std::string getTitolo() const {return titolo_;}
+        std::string getNome() const {return nome_;}
+        std::string getCognome() const {return cognome_;}
+        Date getData() const {return data_;}
 
         void setIsbn(std::string);
         void setTitolo(std::string);
@@ -53,7 +53,7 @@ class Book
         /**
          *  @brief Disponibilita' libro in magazzino
         */
-        bool isDisponibile() const {return disponibile;}
+        bool isDisponibile() const {return disponibile_;}
 
         /**
          * @brief Rende il libro non piu' disponibile
