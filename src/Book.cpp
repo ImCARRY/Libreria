@@ -1,10 +1,28 @@
+/**
+ * Implementation of Book class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
+
 #include "Book.h"
 #include <iostream>
 
 Book::Book(const std::string& n, const std::string& c, const std::string& t, const std::string& i, const Date& d) : 
-    nome_ {n}, cognome_ {c}, titolo_{t}, isbn_{std::string(i)}, data_{d}, disponibile_{true} {}
+    nome_ {n}, 
+    cognome_ {c}, 
+    titolo_{t}, 
+    isbn_{std::string(i)}, 
+    data_{d}, 
+    disponibile_{true} 
+    {
+        if(i.length() != ISBN_LENGTH)
+            throw Invalid{};
+    }
 
 void Book::setIsbn(std::string i){
+    if(i.length() != ISBN_LENGTH)
+        throw Invalid{};
     isbn_ = i;
 }
 
@@ -39,7 +57,11 @@ void Book::restituisci(){
     }
 }
 
-/* Confronto tra due libri secondo l'ISBN */
+/**
+ * @brief Operatore di uguaglianza tra due libri(tramite ISBN)
+ * @param book1 Primo libro
+ * @param book2 Secondo libro
+*/
 bool operator==(const Book& book1, const Book& book2) { 
     return book1.getIsbn() == book2.getIsbn();
 }
@@ -47,38 +69,17 @@ bool operator!=(const Book& book1, const Book& book2) {
     return !(book1.getIsbn() == book2.getIsbn());
 }
 
-/* Nell'output to stream utilizziamo una visualizzazione del tipo
- *
- * TITOLO: <Titolo libro>
- * AUTORE: <Nome autore><Cognome autore>
- * ISBN: <ISBN libro> 
- * DATA DI COPYRIGHT: <Data di copyright del libro>
- * DISPONIBILE: <Disponibilità>
- *
- *Dopo diverse prove sembra essere l'indentazione più compatta e leggibile
- */
 std::ostream& operator<<(std::ostream& os, const Book& book) {
-    os << "TITOLO: " << book.getTitolo() << "\n"
-    << "AUTORE: " << book.getNome() << " " << book.getCognome() << "\n"
+    os << "Titolo: " << book.getTitolo() << "\n"
+    << "Autore: " << book.getNome() << " " << book.getCognome() << "\n"
     << "ISBN: " << book.getIsbn() << "\n"
-    << "DATA DI COPYRIGHT: ";
+    << "Copyright: ";
     
-    /* NOTA: nella classe Date abbiamo definito un anno minimo che verrebbe
-     *       visualizzato in output se la data di un libro viene inizializzata 
-     *       tramite costruttore di default. Per evitarlo, visto che risulterebbe
-     *       poco conforme dare una data a un libro senza titolo e autore,
-     *       utilizziamo questo if per visualizzare "non disponibile" nel
-     *       caso appena descritto
-     */
     if(book.getData().isDefault())
         os << "non disponibile";
     else
         os << book.getData();
     
-    /* NOTA: per evitare di visualizzare uno 0 o un 1 in output 
-     *       alla voce "disponibile", utilizziamo l'operatore ternario
-     *       per mantenere il codice compatto e visualizzare "SI" o "NO"
-     */
     os << "\nDISPONIBILE: " << ((book.isDisponibile())?"SI":"NO");   
     
     return os;

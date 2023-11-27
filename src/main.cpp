@@ -1,10 +1,16 @@
+/**
+ * Entry point
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #include <iostream>
 #include "Book.h"
 #include "BookShelf.h"
 
 int main(){
 
-    Book l1 = Book("Mario", "Grossi", "Il libro", "1234567890", Date(1, Date::Month::jan, 2000));
+    Book l1 = Book("Mario", "Grossi", "Il libro", "123-4-567-890", Date(1, Date::Month::jan, 2000));
     Book l2 = Book("Mario", "Rossi", "Il libro", "123-4-567-890");
     BookShelf bs = BookShelf();
     bs.push_back(l1);

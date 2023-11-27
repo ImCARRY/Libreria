@@ -1,3 +1,9 @@
+/**
+ * Implementation of Date class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #ifndef DATE_H
 #define DATE_H
 
@@ -39,7 +45,7 @@ class Date
         int day_;
         Month month_;
         int year_;
-        /* Flag per distinguere una data 01/01/1600 impostata di default da una impostata manualmente */
+        /* Flag per distinguere una data 01/01/1 impostata di default da una impostata manualmente */
         bool defaultDate;
         // Anno minimo di partenza
         static constexpr int MIN_YEAR = 1;

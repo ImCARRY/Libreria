@@ -1,8 +1,16 @@
+/**
+ * Implementation of Book class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #ifndef BOOK_H
 #define BOOK_H
 
 #include "Date.h"
 #include <iostream>
+
+constexpr int ISBN_LENGTH = 13;
 
 class Book 
 {
@@ -13,6 +21,7 @@ class Book
         std::string titolo_;
         std::string isbn_;
         Date data_;
+        //Disponibile al prestito
         bool disponibile_ = false;       
         
     public:
@@ -43,6 +52,9 @@ class Book
         std::string getCognome() const {return cognome_;}
         Date getData() const {return data_;}
 
+        /**
+         * @brief Deve essere lungo 13 caratteri
+        */
         void setIsbn(std::string);
         void setTitolo(std::string);
         void setNome(std::string);
@@ -73,7 +85,18 @@ class Book
  * Basic operator overloading
 */
 
+/**
+ * @brief Operatore di uguaglianza tra due libri(tramite ISBN)
+ * @param book1 Primo libro
+ * @param book2 Secondo libro
+*/
 bool operator==(const Book& book1, const Book& book2);
+
+/**
+ * @brief Operatore di disuguaglianza tra due libri(tramite ISBN)
+ * @param book1 Primo libro
+ * @param book2 Secondo libro
+*/
 bool operator!=(const Book& book1, const Book& book2);
 
 /* Output to stream */

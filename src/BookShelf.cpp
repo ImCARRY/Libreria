@@ -1,4 +1,9 @@
-
+/**
+ * Implementation of BookShelf class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #include <iostream>
 #include <stdexcept>
 #include "BookShelf.h"

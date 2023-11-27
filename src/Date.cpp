@@ -1,3 +1,9 @@
+/**
+ * Implementation of Date class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #include "Date.h"
 #include <iostream>
 

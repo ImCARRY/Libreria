@@ -1,3 +1,9 @@
+/**
+ * Implementation of BookShelf class
+ * @author Federico Borsati
+ * @matricola 2046106
+ * @gruppo JFK
+*/
 #ifndef BOOKSHELF_H
 #define BOOKSHELF_H
 
@@ -24,7 +30,7 @@ class BookShelf {
         BookShelf(int capacity) : buffer_(new Book[capacity]), size_(0), capacity_(capacity) {}
 
         /**
-         * @brief Override operatore di assegnamento
+         * @brief Operatore di assegnamento
         */
         BookShelf& operator=(const BookShelf& other);
 
