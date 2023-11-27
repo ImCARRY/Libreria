@@ -10,8 +10,8 @@
 
 int main(){
 
-    Book l1 = Book("Mario", "Grossi", "Il libro", "123-4-567-890", Date(1, Date::Month::jan, 2000));
-    Book l2 = Book("Mario", "Rossi", "Il libro", "123-4-567-890");
+    Book l1 = Book("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "887-521-837-4", Date(1, Date::Month::jan, 2000));
+    Book l2 = Book("David", "Foster Wallace", "Una cosa divertente che non farò mai più", "887-521-837-4");
     BookShelf bs = BookShelf();
     bs.push_back(l1);
     bs.push_back(l2);
