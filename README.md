@@ -1,4 +1,5 @@
 # Libreria LdP 
+[![CMake on a single platform](https://github.com/federoRE/Libreria/actions/workflows/cmake-single-platform.yml/badge.svg)](https://github.com/federoRE/Libreria/actions/workflows/cmake-single-platform.yml)
 Richieste:
 
 1. Progettare e implementare la classe Book che rappresenta un libro. Tale classe ha membri per contenere:
