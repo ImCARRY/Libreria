@@ -4,35 +4,29 @@
 
 Date::Date(int d, Month m, int y){
     if(validate(d, m, y))
-        day = d, month = m, year = y, defaultDate = false;
+        day_ = d, month_ = m, year_ = y, defaultDate = false;
     else throw Invalid{};
 }
 
-/* La soluzione iniziale per distinguere una data di default era di assegnare 0 al giorno nel 
- * costruttore di default dato che non è una valore valido in altri casi,
- * tuttavia questo avrebbe reso non validi tutti i set a meno di fare obbligatoriamente set del giorno prima degli altri.
- * Si è quindi deciso di utilizzare una flag defaultDate per distinguere un'inizializzazione con 
- * il costruttore di default (ossia in questo contesto una data non inserita nel libro); 
- * alla prima modifica della data questa flag viene impostata a false. */
 void Date::setDay(int d){
-    if(validate(d, month, year)){
-        day = d;
+    if(validate(d, month_, year_)){
+        day_ = d;
         if(defaultDate)
             defaultDate = false;
     }
     else throw Invalid{};
 }
 void Date::setMonth(Month m){
-    if(validate(day, m, year)){
-        month = m;
+    if(validate(day_, m, year_)){
+        month_ = m;
         if(defaultDate)
             defaultDate = false;
     }
     else throw Invalid{};
 }
 void Date::setYear(int y){
-    if(validate(day, month, y)) {
-        year = y;
+    if(validate(day_, month_, y)) {
+        year_ = y;
         if(defaultDate)
             defaultDate = false;
     }

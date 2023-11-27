@@ -14,7 +14,7 @@ class Date
         /**
          * @brief Costruttore di default di Date
         */
-        Date() : day{1}, month{jan}, year{MIN_YEAR}, defaultDate{true} {}
+        Date() : day_{1}, month_{jan}, year_{MIN_YEAR}, defaultDate{true} {}
 
         /**
          * @brief Costruttore di Date
@@ -24,9 +24,9 @@ class Date
         */
         Date(int, Month, int);
 
-        int getDay() const {return day;}
-        Month getMonth() const {return month;}
-        int getYear() const {return year;}
+        int getDay() const {return day_;}
+        Month getMonth() const {return month_;}
+        int getYear() const {return year_;}
         void setDay(int d);
         void setMonth(Month m);
         void setYear(int y);
@@ -36,9 +36,9 @@ class Date
         class Invalid{};
         
     private:
-        int day;
-        Month month;
-        int year;
+        int day_;
+        Month month_;
+        int year_;
         /* Flag per distinguere una data 01/01/1600 impostata di default da una impostata manualmente */
         bool defaultDate;
         // Anno minimo di partenza

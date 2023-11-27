@@ -2,40 +2,40 @@
 #include <iostream>
 
 Book::Book(const std::string& n, const std::string& c, const std::string& t, const std::string& i, const Date& d) : 
-    nome {n}, cognome {c}, titolo{t}, isbn{std::string(i)}, data{d}, disponibile{true} {}
+    nome_ {n}, cognome_ {c}, titolo_{t}, isbn_{std::string(i)}, data_{d}, disponibile_{true} {}
 
 void Book::setIsbn(std::string i){
-    isbn = i;
+    isbn_ = i;
 }
 
 void Book::setTitolo(std::string t){
-    titolo = t;
+    titolo_ = t;
 }
 
 void Book::setNome(std::string n){
-    nome = n;
+    nome_ = n;
 }
 
 void Book::setCognome(std::string c){
-    cognome = c;
+    cognome_ = c;
 }
 
 void Book::setData(Date d){
-    data = d;
+    data_ = d;
 }
 
 void Book::setDisponibile(bool d){
-    disponibile = d;
+    disponibile_ = d;
 }
 
 void Book::presta(){
-    if(disponibile){
-        disponibile = false;
+    if(disponibile_){
+        disponibile_ = false;
     }
 }
 void Book::restituisci(){
-    if(!disponibile){
-        disponibile = true;
+    if(!disponibile_){
+        disponibile_ = true;
     }
 }
 
