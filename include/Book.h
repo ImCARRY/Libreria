@@ -8,19 +8,19 @@ class Book
 {
     private:
         
-        std::string nome;
-        std::string cognome;
-        std::string titolo;
-        std::string isbn;
-        Date data;
-        bool disponibile = false;       
+        std::string nome_;
+        std::string cognome_;
+        std::string titolo_;
+        std::string isbn_;
+        Date data_;
+        bool disponibile_ = false;       
         
     public:
 
         /**
          * @brief Costruttore di default di Book
         */
-        Book() : nome{""}, cognome{""}, titolo{""}, isbn{""}, data{Date()} {}
+        Book() : nome_{""}, cognome_{""}, titolo_{""}, isbn_{""}, data_{Date()} {}
 
         
         /**
@@ -50,8 +50,19 @@ class Book
         void setData(Date);
         void setDisponibile(bool);
         
+        /**
+         *  @brief Disponibilita' libro in magazzino
+        */
         bool isDisponibile() const {return disponibile;}
+
+        /**
+         * @brief Rende il libro non piu' disponibile
+        */
         void presta();
+
+        /**
+         * @brief Rende il libro di nuovo disponibile
+        */
         void restituisci();
         
         /* Classe definita per la gestione delle eccezioni */

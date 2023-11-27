@@ -4,15 +4,12 @@
 #include "BookShelf.h"
 
 
-// Default constructor
 BookShelf::BookShelf() : buffer(nullptr), size(0), capacity(0) {}
 
-// Destructor
 BookShelf::~BookShelf() {
     delete[] buffer;
 }
 
-// Copy constructor
 BookShelf::BookShelf(const BookShelf& other) : size(other.size), capacity(other.capacity) {
     buffer = new Book[capacity];
     for (int i = 0; i < size; i++) {
@@ -20,7 +17,6 @@ BookShelf::BookShelf(const BookShelf& other) : size(other.size), capacity(other.
     }
 }
 
-// Assignment operator
 BookShelf& BookShelf::operator=(const BookShelf& other) {
     if (this != &other) {
         delete[] buffer;
@@ -34,7 +30,6 @@ BookShelf& BookShelf::operator=(const BookShelf& other) {
     return *this;
 }
 
-// Accessor with boundary check
 Book& BookShelf::at(int index) {
     if (index < 0 || index >= size) {
         throw std::out_of_range("Index out of range");

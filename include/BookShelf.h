@@ -1,4 +1,3 @@
-
 #ifndef BOOKSHELF_H
 #define BOOKSHELF_H
 
@@ -6,9 +5,22 @@
 
 class BookShelf {
     public:
+        /**
+         * @brief Costruttore di default
+        */
         BookShelf();
         ~BookShelf();
+
+        /**
+         * @brief Costruttore di copia
+         * @param other BookShelf da copiare
+        */
         BookShelf(const BookShelf& other);
+
+        /**
+         * @brief Operatore di assegnamento
+         * @param other BookShelf da copiare
+        */
         BookShelf(int capacity) : buffer(new Book[capacity]), size(0), capacity(capacity) {}
         BookShelf& operator=(const BookShelf& other);
         Book& operator[](int index);

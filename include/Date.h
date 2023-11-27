@@ -41,7 +41,7 @@ class Date
         int year;
         /* Flag per distinguere una data 01/01/1600 impostata di default da una impostata manualmente */
         bool defaultDate;
-        /* Valore minimo accettato per l'anno */
+        // Anno minimo di partenza
         static constexpr int MIN_YEAR = 1;
         
         /**
