@@ -1,8 +1,6 @@
 /**
  * Implementation of BookShelf class
- * @author Federico Borsati
- * @matricola 2046106
- * @gruppo JFK
+ * @author JFK
 */
 #include <iostream>
 #include <stdexcept>

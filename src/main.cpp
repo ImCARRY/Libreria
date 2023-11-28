@@ -1,8 +1,6 @@
 /**
  * Entry point
- * @author Federico Borsati
- * @matricola 2046106
- * @gruppo JFK
+ * @author JFK
 */
 #include <iostream>
 #include "Book.h"

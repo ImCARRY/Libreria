@@ -1,8 +1,6 @@
 /**
  * Implementation of library_prof_test.cpp
- * @author Federico Borsati
- * @matricola 2046106
- * @gruppo JFK
+ * @author JFK
 */
 #include "BookShelf.h"
 #include "Book.h"

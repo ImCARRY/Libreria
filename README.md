@@ -32,3 +32,7 @@ shelf.pop_back();
 ```
 
 La classe Book, la classe BookShelf (e le altre eventuali classi) devono essere correttamente separate nei file .h e .cpp. Un ulteriore file .cpp deve contenere il main, usato per i test.
+
+
+# Info
+Gruppo JFK

@@ -1,8 +1,6 @@
 /**
  * Implementation of Date class
- * @author Federico Borsati
- * @matricola 2046106
- * @gruppo JFK
+ * @author JFK
 */
 #ifndef DATE_H
 #define DATE_H
