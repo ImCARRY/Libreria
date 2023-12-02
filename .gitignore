@@ -1,3 +1,5 @@
 #author JFK
 build/
 README.txt
+cmake-build-release/
+cmake-build-debug/
