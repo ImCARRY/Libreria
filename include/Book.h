@@ -38,7 +38,7 @@ class Book
          * @param i ISBN del libro
          * @param d Data di pubblicazione del libro
         */
-        Book(const std::string& n, const std::string& c, const std::string& t, const std::string& i, const Date& d = Date());
+        Book(std::string  n, std::string  c, std::string  t, const std::string& i, const Date& d = Date());
 
         /**
          * Member functions

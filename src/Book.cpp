@@ -5,11 +5,12 @@
 
 #include "Book.h"
 #include <iostream>
+#include <utility>
 
-Book::Book(const std::string& n, const std::string& c, const std::string& t, const std::string& i, const Date& d) : 
-    nome_ {n}, 
-    cognome_ {c}, 
-    titolo_{t}, 
+Book::Book(std::string  n, std::string  c, std::string  t, const std::string& i, const Date& d) :
+    nome_ {std::move(n)},
+    cognome_ {std::move(c)},
+    titolo_{std::move(t)},
     isbn_{std::string(i)}, 
     data_{d}, 
     disponibile_{true} 
