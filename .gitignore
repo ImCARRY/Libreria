@@ -1,5 +1,6 @@
 #author JFK
 build/
-cmake-build-debug/
+README.txt
 cmake-build-release/
+cmake-build-debug/
 src/testing/cheatengine_test.cpp
