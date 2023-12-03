@@ -56,20 +56,20 @@ class Book
          * Member functions
         */
 
-        std::string getIsbn() const {return isbn_;}
-        std::string getTitolo() const {return titolo_;}
-        std::string getNome() const {return nome_;}
-        std::string getCognome() const {return cognome_;}
-        Date getData() const {return data_;}
+        [[nodiscard]] std::string getIsbn() const {return isbn_;}
+        [[nodiscard]] std::string getTitolo() const {return titolo_;}
+        [[nodiscard]] std::string getNome() const {return nome_;}
+        [[nodiscard]] std::string getCognome() const {return cognome_;}
+        [[nodiscard]] Date getData() const {return data_;}
 
         /**
          * @brief Deve essere lungo 13 caratteri
         */
-        void setIsbn(std::string);
+        void setIsbn(const std::string&);
         void setTitolo(std::string);
         void setNome(std::string);
         void setCognome(std::string);
-        void setData(Date);
+        void setData(const Date&);
         void setDisponibile(bool);
         static int getISBN_LENGTH();
         
@@ -91,8 +91,12 @@ class Book
         /* Classe definita per la gestione delle eccezioni */
         class Invalid{};
 
-    Book(volatile const std::string& nome, volatile std::string cognome, volatile std::string titolo,
-         volatile std::string isbn);
+        /**
+         * @brief Operatore di assegnamento di Book
+         * @param other Book da assegnare
+        */
+        Book& operator=(const Book& other);
+
 };
 
 /**

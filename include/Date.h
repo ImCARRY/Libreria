@@ -50,6 +50,8 @@ class Date
         bool isDefault();
 
         class Invalid{};
+
+        Date& operator=(const Date& other);
         
     private:
         int day_;

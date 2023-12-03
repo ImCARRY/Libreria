@@ -92,6 +92,16 @@ bool Date::isDefault(){
     return defaultDate;
 }
 
+Date& Date::operator=(const Date& other) {
+    if (this != &other) {
+        day_ = other.day_;
+        month_ = other.month_;
+        year_ = other.year_;
+        defaultDate = other.defaultDate;
+    }
+    return *this;
+}
+
 std::ostream& operator<<(std::ostream& os, const Date& date){
     //se il giorno e/o il mese hanno una sola cifra aggiungo uno 0 davanti per questioni estetiche
     return os<<((date.getDay()<10)?"0":"")<<date.getDay()
