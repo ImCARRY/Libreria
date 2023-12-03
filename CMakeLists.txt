@@ -40,13 +40,9 @@ add_executable(
     library_test
     src/testing/library_prof_test.cpp
     )
-add_executable(
-        ce_test
-        src/testing/cheatengine_test.cpp
-)
+
 target_link_libraries(book_test ${PROJECT_NAME})
 target_link_libraries(library_test ${PROJECT_NAME})
-target_link_libraries(ce_test ${PROJECT_NAME})
 enable_testing()
 
 add_test(
@@ -56,9 +52,5 @@ add_test(
 add_test(
     NAME library_test
     COMMAND $<TARGET_FILE:library_test>
-)
-add_test(
-        NAME ce_test
-        COMMAND $<TARGET_FILE:ce_test>
 )
 
