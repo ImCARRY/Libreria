@@ -28,6 +28,12 @@ class BookShelf {
         BookShelf(int capacity) : buffer_(new Book[capacity]), size_(0), capacity_(capacity) {}
 
         /**
+         * @brief Costruttore di spostamento
+         * @param other BookShelf da spostare
+        */
+        BookShelf(BookShelf&& other) noexcept;
+
+        /**
          * @brief Operatore di assegnamento
         */
         BookShelf& operator=(const BookShelf& other);

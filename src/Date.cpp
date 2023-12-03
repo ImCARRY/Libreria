@@ -12,6 +12,22 @@ Date::Date(int d, Month m, int y){
     else throw Invalid{};
 }
 
+Date::Date(const Date& other) :
+    day_{other.day_},
+    month_{other.month_},
+    year_{other.year_},
+    defaultDate{other.defaultDate}
+{
+}
+
+Date::Date(Date&& other) noexcept :
+    day_{std::move(other.day_)},
+    month_{std::move(other.month_)},
+    year_{std::move(other.year_)},
+    defaultDate{std::move(other.defaultDate)}
+{
+}
+
 void Date::setDay(int d){
     if(validate(d, month_, year_)){
         day_ = d;

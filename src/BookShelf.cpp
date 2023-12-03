@@ -13,6 +13,12 @@ BookShelf::~BookShelf() {
     delete[] buffer_;
 }
 
+BookShelf::BookShelf(BookShelf&& other) noexcept : buffer_(other.buffer_), size_(other.size_), capacity_(other.capacity_) {
+    other.buffer_ = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
+}
+
 BookShelf::BookShelf(const BookShelf& other) : size_(other.size_), capacity_(other.capacity_) {
     buffer_ = new Book[capacity_];
     for (int i = 0; i < size_; i++) {

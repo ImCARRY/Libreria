@@ -3,6 +3,11 @@
  * @author JFK
 */
 
+/**
+ * MOVE NOT OK
+ * COPY NOT OK
+*/
+
 #include "Book.h"
 #include <iostream>
 #include <utility>
@@ -18,6 +23,26 @@ Book::Book(std::string  n, std::string  c, std::string  t, const std::string& i,
         if(i.length() != ISBN_LENGTH)
             throw Invalid{};
     }
+
+Book::Book(const Book& other) :
+    nome_{other.nome_},
+    cognome_{other.cognome_},
+    titolo_{other.titolo_},
+    isbn_{other.isbn_},
+    data_{other.data_},
+    disponibile_{other.disponibile_}
+{
+}
+
+Book::Book(Book&& other) noexcept :
+    nome_{std::move(other.nome_)},
+    cognome_{std::move(other.cognome_)},
+    titolo_{std::move(other.titolo_)},
+    isbn_{std::move(other.isbn_)},
+    data_{std::move(other.data_)},
+    disponibile_{std::move(other.disponibile_)}
+{
+}
 
 void Book::setIsbn(std::string i){
     if(i.length() != ISBN_LENGTH)

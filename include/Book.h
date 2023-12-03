@@ -13,8 +13,8 @@ constexpr int ISBN_LENGTH = 13;
 class Book 
 {
     private:
-        
-        std::string nome_;
+
+    std::string nome_;
         std::string cognome_;
         std::string titolo_;
         std::string isbn_;
@@ -41,6 +41,18 @@ class Book
         Book(std::string  n, std::string  c, std::string  t, const std::string& i, const Date& d = Date());
 
         /**
+         * @brief Costruttore di copia di Book
+         * @param other Book da copiare
+        */
+        Book(const Book& other);
+
+        /**
+         * @brief Costruttore di spostamento di Book
+         * @param other Book da spostare
+        */
+        Book(Book&& other) noexcept;
+
+        /**
          * Member functions
         */
 
@@ -59,6 +71,7 @@ class Book
         void setCognome(std::string);
         void setData(Date);
         void setDisponibile(bool);
+        static int getISBN_LENGTH();
         
         /**
          *  @brief Disponibilita' libro in magazzino
@@ -77,6 +90,9 @@ class Book
         
         /* Classe definita per la gestione delle eccezioni */
         class Invalid{};
+
+    Book(volatile const std::string& nome, volatile std::string cognome, volatile std::string titolo,
+         volatile std::string isbn);
 };
 
 /**

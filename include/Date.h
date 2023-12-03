@@ -28,6 +28,18 @@ class Date
         */
         Date(int, Month, int);
 
+        /**
+         * @brief Costruttore di copia di Date
+         * @param other Date da copiare
+        */
+        Date(const Date& other);
+
+        /**
+         * @brief Costruttore di spostamento di Date
+         * @param other Date da spostare
+        */
+        Date(Date&& other) noexcept;
+
         int getDay() const {return day_;}
         Month getMonth() const {return month_;}
         int getYear() const {return year_;}
