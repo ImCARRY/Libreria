@@ -2,7 +2,6 @@
  * Implementation of Book class
  * @author JFK
 */
-
 #include "Book.h"
 #include <iostream>
 #include <utility>
@@ -19,25 +18,45 @@ Book::Book(std::string  n, std::string  c, std::string  t, const std::string& i,
             throw Invalid{};
     }
 
-void Book::setIsbn(std::string i){
+Book::Book(const Book& other) :
+    nome_{other.nome_},
+    cognome_{other.cognome_},
+    titolo_{other.titolo_},
+    isbn_{other.isbn_},
+    data_{other.data_},
+    disponibile_{other.disponibile_}
+{
+}
+
+Book::Book(Book&& other) noexcept :
+    nome_{std::move(other.nome_)},
+    cognome_{std::move(other.cognome_)},
+    titolo_{std::move(other.titolo_)},
+    isbn_{std::move(other.isbn_)},
+    data_{std::move(other.data_)},
+    disponibile_{other.disponibile_}
+{
+}
+
+void Book::setIsbn(const std::string& i){
     if(i.length() != ISBN_LENGTH)
         throw Invalid{};
     isbn_ = i;
 }
 
 void Book::setTitolo(std::string t){
-    titolo_ = t;
+    titolo_ = std::move(t);
 }
 
 void Book::setNome(std::string n){
-    nome_ = n;
+    nome_ = std::move(n);
 }
 
 void Book::setCognome(std::string c){
-    cognome_ = c;
+    cognome_ = std::move(c);
 }
 
-void Book::setData(Date d){
+void Book::setData(const Date& d){
     data_ = d;
 }
 
@@ -55,6 +74,19 @@ void Book::restituisci(){
         disponibile_ = true;
     }
 }
+
+Book& Book::operator=(const Book& other) {
+    if (this != &other) {
+        nome_ = other.nome_;
+        cognome_ = other.cognome_;
+        titolo_ = other.titolo_;
+        isbn_ = other.isbn_;
+        data_ = other.data_;
+        disponibile_ = other.disponibile_;
+    }
+    return *this;
+}
+
 
 /**
  * @brief Operatore di uguaglianza tra due libri(tramite ISBN)

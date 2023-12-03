@@ -13,8 +13,8 @@ constexpr int ISBN_LENGTH = 13;
 class Book 
 {
     private:
-        
-        std::string nome_;
+
+    std::string nome_;
         std::string cognome_;
         std::string titolo_;
         std::string isbn_;
@@ -41,24 +41,37 @@ class Book
         Book(std::string  n, std::string  c, std::string  t, const std::string& i, const Date& d = Date());
 
         /**
+         * @brief Costruttore di copia di Book
+         * @param other Book da copiare
+        */
+        Book(const Book& other);
+
+        /**
+         * @brief Costruttore di spostamento di Book
+         * @param other Book da spostare
+        */
+        Book(Book&& other) noexcept;
+
+        /**
          * Member functions
         */
 
-        std::string getIsbn() const {return isbn_;}
-        std::string getTitolo() const {return titolo_;}
-        std::string getNome() const {return nome_;}
-        std::string getCognome() const {return cognome_;}
-        Date getData() const {return data_;}
+        [[nodiscard]] std::string getIsbn() const {return isbn_;}
+        [[nodiscard]] std::string getTitolo() const {return titolo_;}
+        [[nodiscard]] std::string getNome() const {return nome_;}
+        [[nodiscard]] std::string getCognome() const {return cognome_;}
+        [[nodiscard]] Date getData() const {return data_;}
 
         /**
          * @brief Deve essere lungo 13 caratteri
         */
-        void setIsbn(std::string);
+        void setIsbn(const std::string&);
         void setTitolo(std::string);
         void setNome(std::string);
         void setCognome(std::string);
-        void setData(Date);
+        void setData(const Date&);
         void setDisponibile(bool);
+        static int getISBN_LENGTH();
         
         /**
          *  @brief Disponibilita' libro in magazzino
@@ -77,6 +90,13 @@ class Book
         
         /* Classe definita per la gestione delle eccezioni */
         class Invalid{};
+
+        /**
+         * @brief Operatore di assegnamento di Book
+         * @param other Book da assegnare
+        */
+        Book& operator=(const Book& other);
+
 };
 
 /**

@@ -18,6 +18,9 @@ add_library(
     ${SRC_FILES} 
     ${HEADER_FILES}
     )
+# Serve per la RELEASE, fa funzionare il programma out-of-the-box
+set(CMAKE_EXE_LINKER_FLAGS " -static")
+
 add_executable(
     Books 
     src/main.cpp
@@ -25,6 +28,7 @@ add_executable(
 target_link_libraries(
     Books 
     ${PROJECT_NAME}
+        -static-libgcc -static-libstdc++
     )
 
 # TESTING
@@ -36,6 +40,7 @@ add_executable(
     library_test
     src/testing/library_prof_test.cpp
     )
+
 target_link_libraries(book_test ${PROJECT_NAME})
 target_link_libraries(library_test ${PROJECT_NAME})
 enable_testing()
